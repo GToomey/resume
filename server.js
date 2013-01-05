@@ -1,8 +1,12 @@
 //setup Dependencies
-var connect = require('connect')
-    , express = require('express')
-    , io = require('socket.io')
-    , port = (process.env.PORT || 8081);
+var connect = require('connect'),
+    express = require('express'),
+    port = (process.env.PORT || 8081),
+    https = require('https'),
+    
+    config = require('./server-config'),
+    models = require('./server-models'),
+    controllers = require('./server-controllers');
 
 //Setup Express
 var server = express.createServer();
@@ -15,6 +19,10 @@ server.configure(function(){
     server.use(connect.static(__dirname + '/static'));
     server.use(server.router);
 });
+
+//Setup DB connection
+var mongoose = require('mongoose');
+mongoose.connect(config.development.database.uri);
 
 //setup the errors
 server.error(function(err, req, res, next){
@@ -37,20 +45,6 @@ server.error(function(err, req, res, next){
 });
 server.listen( port);
 
-//Setup Socket.IO
-var io = io.listen(server);
-io.sockets.on('connection', function(socket){
-  console.log('Client Connected');
-  socket.on('message', function(data){
-    socket.broadcast.emit('server_message',data);
-    socket.emit('server_message',data);
-  });
-  socket.on('disconnect', function(){
-    console.log('Client Disconnected.');
-  });
-});
-
-
 ///////////////////////////////////////////
 //              Routes                   //
 ///////////////////////////////////////////
@@ -68,6 +62,15 @@ server.get('/', function(req,res){
   });
 });
 
+// page routes
+server.get('/positions', controllers.positions.index);
+server.get('/positions/:id', controllers.positions.read);
+server.post('/positions', controllers.positions.create);
+server.put('/positions/:id', controllers.positions.update);
+server.delete('/positions/:id', controllers.positions.delete);
+
+server.get('/accomplishments', controllers.accomplishments.index);
+server.get('/accomplishments/:id', controllers.accomplishments.read);
 
 //A Route for Creating a 500 Error (Useful to keep around)
 server.get('/500', function(req, res){
