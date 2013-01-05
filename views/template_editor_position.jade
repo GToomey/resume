@@ -1,0 +1,4 @@
+script(type='text/x-handlebars-template', id='template-editor-position')
+    {{view Ember.TextField valueBinding="content.title"}}
+    <input type="submit" value="Save" {{action presave}}>
+    <span {{action cancel}}>cancel</span>

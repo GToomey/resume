@@ -1,0 +1,10 @@
+script(type='text/x-handlebars-template', id='template-main')
+    h2 Brendan Hill
+
+script(type='text/x-handlebars')
+    h2 Positions:
+    {{collection ClientApp.PositionListView}}
+    p<span {{action create target="ClientApp.PositionController"}}>add position</span>
+
+script(type='text/x-handlebars')
+    {{collection ClientApp.AccomplishmentListView}}

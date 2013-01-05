@@ -1,0 +1,15 @@
+body {
+    background-color: #CCCCCC;
+    margin: 10px;
+    padding: 10px;
+}
+
+#modal {
+    background-color: #FFFFFF;
+    padding: 10px;
+    border: 1px solid #000000;
+    display: none;
+    z-index: 1000;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}

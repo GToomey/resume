@@ -1,0 +1,12 @@
+module.exports = {
+    development: {
+        database: {
+            db: '',
+            server: '',
+            port: '',
+            user: '',
+            pass:'',
+            uri: 'mongodb://{username}:{password}@{server}:{port}/{database}'
+        }
+    }
+}
