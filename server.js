@@ -72,6 +72,8 @@ server.delete('/positions/:id', controllers.positions.delete);
 server.get('/accomplishments', controllers.accomplishments.index);
 server.get('/accomplishments/:id', controllers.accomplishments.read);
 
+server.get('/unittests', controllers.unittests.index);
+
 //A Route for Creating a 500 Error (Useful to keep around)
 server.get('/500', function(req, res){
     throw new Error('This is a 500 Error');

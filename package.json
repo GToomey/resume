@@ -1,18 +1,14 @@
 {
-  "name": "YOUR-PROJECT-NAME-HERE",
-  "description": "YOUR PROJECT DESCRIPTION HERE",
-  "author": "YOUR NAME <your@emailaddress.com>",
+  "name": "Brendan Hill Resume",
+  "description": "My Resume",
+  "author": "Brendna Hill <brendan@brendanhill.com>",
   "version": "0.0.1",
+  "main": "server.js",
   "dependencies": {
     "connect": "1.8.5",
     "express": "2.5.2",
     "jade": "0.20.0",
     "mongoose": "2.4.8"
-  },
-  "devDependencies": {
-    "vows": "0.5.x",
-	"mocha": "*",
-	"should": "*"
   },
   "engine": "node >= 0.6.6"
 }

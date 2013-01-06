@@ -3,7 +3,7 @@ head
     title=title
     script
         ENV = {CP_DEFAULT_CACHEABLE: true};
-    link(rel='stylesheet', href='/css/client-app.css')s
+    link(rel='stylesheet', href='/css/client-app.css')
     script(defer, src='/js/ember/lib/jquery-1.7.2.min.js')
     script(defer, src='/js/ember/lib/handlebars-1.0.rc.1.js')
     script(defer, src='/js/ember/lib/ember.js')
@@ -11,7 +11,7 @@ body
     block header
 
     block content
-
+    
     block footer
         footer
             script(defer, src='/js/client.js')
@@ -19,4 +19,4 @@ body
             !=partial('template_modal')
             !=partial('template_position')
             !=partial('template_editor_position')
-            !=partial('template_accomplishment')
+            !=partial('template_accomplishment')    
